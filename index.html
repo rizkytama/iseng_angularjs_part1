@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+<title>AngularJs</title>
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<!-- sweetalert --> 
+<link rel="stylesheet" type="text/css" href="assets/sweetalert-master/dist/sweetalert.css">
+<link href='http://fonts.googleapis.com/css?family=Lobster|Open+Sans' rel='stylesheet' type='text/css'>
+<style>
+.hasil{
+	font-family:  Lobster;
+	text-align: center;
+	
+	border: 10px;
+	border-color: black;
+}
+#tinggi{
+	min-height: 210px;
+}
+a{
+	font-family:  Lobster;
+}	
+h3{
+	font-family:  Lobster;
+}
+
+</style>
+</head>
+<body>
+<!-- ///////////////////////////NAVBAR/////////////////////////// -->
+<div class="navbar-fixed">
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img class="responsive-img "  src="assets/img/ttl-clickcoodstudio.png" alt="clickcoodstudio" width="57"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="https://github.com/rizkytama/iseng_angularjs_part1">Source</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+      	<li><a class="subheader"><h1><u><b>Menu</b></u></h1></a></li>
+      	<li><a class="subheader"></a></li>
+        <li><a href="https://github.com/rizkytama/iseng_angularjs_part1" class="waves-effect">Source</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  </div>
+ <!-- ///////////////////////////CONTENT/////////////////////////// -->
+
+<h3 align="center">Data-Binding Expression</h3><hr/><br>
+
+<div class="container" >
+	<div id="tinggi">
+		<div class="row col s12">
+
+			<div class="input-field col s6" >
+			   	<input id="nama_dp" type="text" class="validate" ng-model="nama_dp" >
+			    <label for="nama_dp">Nama Depan</label>
+			</div>
+
+			<div class="input-field col s6" >
+			   	<input id="nama_bl"  type="text" class="validate" ng-model="nama_bl" >
+			    <label for="nama_bl">Nama Belakang</label>
+			</div>
+
+			<div class="input-field col s6">
+				<i><b>Jenis Kelamin</b></i><br>
+				<input name="grup_jk" id="lk" type="radio" class="validate" value="Laki-Laki" ng-model="jk">
+				<label for="lk">Laki-Laki</label>
+				<input name="grup_jk" id="pr" type="radio" class="validate" value="Perempuan" ng-model="jk">
+				<label for="pr">Perempuan</label>
+				<input name="grup_jk" id="gj" type="radio" class="validate" value="Gak Jelas" ng-model="jk">
+				<label for="gj">Gak Jelas</label>
+			</div>
+
+			<div class="input-field col s6">
+				<textarea type="text" id="alamat" class="validate materialize-textarea" length="120" ng-model="alamat"></textarea>
+				<label for="alamat">Alamat</label>
+			</div>
+
+			<div class="input-field col s6">
+				<input type="text" id="ips" class="validate" ng-model="ips">
+				<label for="ips">Nilai IPS</label>
+			</div>
+
+			<div class="input-field col s6">
+				<input type="text" id="ipa" class="validate" ng-model="ipa">
+				<label for="ipa">Nilai IPA</label>
+			</div>
+
+
+		</div>
+<center><button id="cetak" class="btn btn-large tooltipped" data-position="bottom" data-delay="50" data-tooltip="Print Data"><i class="large material-icons">print</i></button></center>
+
+<div id="data-print">		
+<div class="title">
+			<center>
+		<h3>=============CETAK DATA NILAI SISWA=============</h3>
+			</center>
+</div>
+		
+		<div class="hasil">
+<table>
+	<tr>
+		<td>Nama Depan</td>
+		<td>:</td>
+		<td>{{ nama_dp }}</td>
+	</tr>
+	<tr>
+		<td>Nama Belakang</td>
+		<td>:</td>
+		<td>{{nama_bl}}</td>
+	</tr>
+	<tr>
+		<td>Nama Lengkap</td>
+		<td>:</td>
+		<td>{{nama_dp+' '+nama_bl}}</td>
+	</tr>
+	<tr>
+		<td>Jenis Kelamin</td>
+		<td>:</td>
+		<td>{{jk}}</td>
+	</tr>
+	<tr>
+		<td>Alamat</td>
+		<td>:</td>
+		<td>{{alamat}}</td>
+	</tr>
+	<tr>
+		<td>Nilai IPS</td>
+		<td>:</td>
+		<td>{{ips}}</td>
+	</tr>
+	<tr>
+		<td>Nilai IPA</td>
+		<td>:</td>
+		<td>{{ipa}}</td>
+	</tr>
+	<tr>
+		<td>Rata-Rata</td>
+		<td>:</td>
+		<td>{{ ((ips-0)+(ipa-0)) / 2 }}</td>
+	</tr>
+</table>
+
+
+</div>
+		</div>
+	</div>
+</div> 
+
+
+<!-- ///////////////////////////FOOTER/////////////////////////// -->
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Cuap-Cuap</h5>
+          <p class="grey-text text-lighten-4">tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng tama iseng</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="https://www.facebook.com/tama.rizky"> <i class="material-icons">mail</i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="https://www.facebook.com/tama.rizky">Rizky Tama</a>
+      </div>
+    </div>
+  </footer>
+	
+<script type ="text/javascript" src="assets/jquery-2.1.4.min.js"></script>
+<!-- sweetalert -->
+<script src="assets/sweetalert-master/dist/sweetalert.min.js"></script>
+<script src="assets/js/materialize.min.js"></script>
+<script src="assets/js/init.js"></script>
+<script src="assets/js/angular.min.js"></script>
+<script src="assets/js/angular-route.min.js"></script>
+
+
+<!-- css yang digunakan ketika dalam mode screen -->
+	<link href="assets/printarea/style.css" rel="stylesheet" media="screen">
+	
+	<!-- ss yang digunakan tampilkan ketika dalam mode print -->
+	<link href="assets/printarea/print.css" rel="stylesheet" media="print">
+	
+	<script src="assets/printarea/jquery.PrintArea.js"></script>
+
+
+<script type="text/javascript">
+(function($) {
+			// fungsi dijalankan setelah seluruh dokumen ditampilkan
+			$(document).ready(function(e) {
+				
+				// aksi ketika tombol cetak ditekan
+				$("#cetak").bind("click", function(event) {
+					// cetak data pada area <div id="#data-mahasiswa"></div>
+					$('#data-print').printArea();
+				});
+			});
+		}) (jQuery);
+
+  $(document).ready(function(){
+    $(".button-collapse").sideNav();
+    $('select').material_select();
+    $('.modal-trigger').leanModal({
+          dismissible: true, // Modal can be dismissed by clicking outside of the modal
+          opacity: .5, // Opacity of modal background
+          in_duration: 300, // Transition in duration
+          out_duration: 200, // Transition out duration
+          starting_top: '4%', // Starting top style attribute
+          ending_top: '10%', // Ending top style attribute
+          //ready: function() { alert('Ready'); },  Callback for Modal open
+          //complete: function() { alert('Closed'); }  Callback for Modal close
+        }
+      );
+  })
+
+</script>
+</body>
+</html>
