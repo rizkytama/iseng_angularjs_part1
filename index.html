@@ -202,12 +202,8 @@ h3{
 
 <script type="text/javascript">
 (function($) {
-			// fungsi dijalankan setelah seluruh dokumen ditampilkan
 			$(document).ready(function(e) {
-				
-				// aksi ketika tombol cetak ditekan
 				$("#cetak").bind("click", function(event) {
-					// cetak data pada area <div id="#data-mahasiswa"></div>
 					$('#data-print').printArea();
 				});
 			});
